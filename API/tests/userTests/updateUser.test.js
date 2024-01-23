@@ -6,6 +6,7 @@ const statusCode = require("../../support/fixtures/statusCode.json");
 const type = require("../../support/fixtures/type.json");
 const message = require("../../support/fixtures/message.json");
 const userUpdateData = require("../../support/fixtures/userUpdate.json");
+
 test.describe("Update user", async () => {
   let methods;
   test.beforeEach("SetUp", async ({ request }) => {
@@ -27,7 +28,7 @@ test.describe("Update user", async () => {
   test.afterEach("CleanUp", async ({ context }) => {
     await context.clearCookies();
   });
-  test("should succesfully update user's password", async () => {
+  test("should succesfully update user", async () => {
     await methods.updateUser(
       consts.updateUserUrl,
       userUpdateData,
