@@ -20,4 +20,7 @@ test.describe("Making orders", async () => {
       statusCode.ok
     );
   });
+  test("shouldn't make order without data", async () => {
+    await methods.makeOrder(consts.makeOrderUrl, null, statusCode.badRequest);
+  });
 });

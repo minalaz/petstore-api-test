@@ -1,1 +1,8 @@
-{ "ok": 200, "badRequest": 400, "serverError": 500, "notFound": 404 }
+{
+  "ok": 200,
+  "badRequest": 400,
+  "serverError": 500,
+  "notFound": 404,
+  "methodNotAlowed": 405,
+  "unsupported": 415
+}

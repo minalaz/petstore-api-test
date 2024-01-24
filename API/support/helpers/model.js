@@ -10,6 +10,7 @@ export class Order {
 }
 export class User {
   constructor(
+    id,
     username,
     firstName,
     lastName,
@@ -18,6 +19,7 @@ export class User {
     phone,
     userStatus
   ) {
+    this.id = id;
     this.username = username;
     this.firstName = firstName;
     this.lastName = lastName;

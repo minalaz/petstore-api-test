@@ -1,40 +1,31 @@
 const { test } = require("@playwright/test");
 import { consts } from "../../support/helpers/consts";
+import { generateUser } from "../../support/helpers/generateUser";
 import { Methods } from "../../support/helpers/methods";
-const validCredentials = require("../../support/fixtures/validCredentials.json");
 const statusCode = require("../../support/fixtures/statusCode.json");
-const type = require("../../support/fixtures/type.json");
-const message = require("../../support/fixtures/message.json");
-const userUpdateData = require("../../support/fixtures/userUpdate.json");
 
 test.describe("Update user", async () => {
   let methods;
+  const userData = generateUser.generateRandomUser();
+  const userUpdateData = generateUser.generateRandomUser();
+  const userName = userData.username;
+  const password = userData.password;
   test.beforeEach("SetUp", async ({ request }) => {
     methods = new Methods(request);
     await methods.performUserCreation(
       consts.createUserUrl,
-      validCredentials,
-      statusCode.ok,
-      type.unknown,
-      message.validUserMessage
+      userData,
+      statusCode.ok
     );
-    await methods.loginUser(
-      consts.loginUserUrl,
-      statusCode.ok,
-      type.unknown,
-      message.succesfulyLoginMessage
-    );
+    await methods.loginUser(userName, password, statusCode.ok);
   });
   test.afterEach("CleanUp", async ({ context }) => {
     await context.clearCookies();
   });
   test("should succesfully update user", async () => {
-    await methods.updateUser(
-      consts.updateUserUrl,
-      userUpdateData,
-      statusCode.ok,
-      type.unknown,
-      message.validUserMessage
-    );
+    await methods.updateUser(userName, userUpdateData, statusCode.ok);
+  });
+  test("shouldn't update user without data", async () => {
+    userName, null, statusCode.unsupported;
   });
 });
