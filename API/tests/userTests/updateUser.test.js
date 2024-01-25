@@ -20,6 +20,7 @@ test.describe("Update user", async () => {
     await methods.loginUser(userName, password, statusCode.ok);
   });
   test.afterEach("CleanUp", async ({ context }) => {
+    await methods.deleteUser(userName);
     await context.clearCookies();
   });
   test("should succesfully update user", async () => {

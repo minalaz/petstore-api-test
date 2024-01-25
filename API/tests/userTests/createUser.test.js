@@ -7,18 +7,21 @@ import { generateUser } from "../../support/helpers/generateUser";
 
 test.describe("Create user tests", async () => {
   let methods;
+  const userData = generateUser.generateRandomUser();
+  const userName = userData.username;
 
   test.beforeEach("SetUp", async ({ request }) => {
     methods = new Methods(request);
   });
   test.afterEach("CleanUp", async ({ context }) => {
+    await methods.deleteUser(userName);
     await context.clearCookies();
   });
 
   test("should create user succesfully", async () => {
     await methods.performUserCreation(
       consts.createUserUrl,
-      generateUser.generateRandomUser(),
+      userData,
       statusCode.ok
     );
   });

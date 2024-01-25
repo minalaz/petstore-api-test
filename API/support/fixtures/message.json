@@ -1,6 +1,4 @@
 {
-  "validUserMessage": "9223372036854775807",
-  "invalidUserMessage": "0",
   "ok": "ok",
   "succesfulyLoginMessage": "logged in user session:",
   "somethingBad": "something bad happened"

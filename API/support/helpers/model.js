@@ -29,3 +29,38 @@ export class User {
     this.userStatus = userStatus;
   }
 }
+export class Category {
+  constructor(id, name) {
+    this.id = id;
+    this.name = name;
+  }
+}
+export class Tag {
+  constructor(id, name) {
+    this.id = id;
+    this.name = name;
+  }
+}
+export class Pet {
+  constructor(id, category, name, photoUrls, tags, status) {
+    this.id = id;
+    this.category = new Category(category.id, category.name);
+    this.name = name;
+    this.photoUrls = photoUrls;
+    this.tags = tags.map((tag) => new Tag(tag.id, tag.name));
+    this.status = status;
+  }
+  toJson() {
+    return {
+      id: this.id,
+      category: {
+        id: this.category.id,
+        name: this.category.name,
+      },
+      name: this.name,
+      photoUrls: this.photoUrls,
+      tags: this.tags.map((tag) => ({ id: tag.id, name: tag.name })),
+      status: this.status,
+    };
+  }
+}

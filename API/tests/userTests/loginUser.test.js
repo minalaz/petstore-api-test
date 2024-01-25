@@ -18,6 +18,7 @@ test.describe("Login tests", () => {
     );
   });
   test.afterEach("CleanUp", async ({ context }) => {
+    await methods.deleteUser(userName);
     await context.clearCookies();
   });
   test("should login with valid login credentials", async () => {
