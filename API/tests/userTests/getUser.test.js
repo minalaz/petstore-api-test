@@ -4,7 +4,7 @@ import { generateUser } from "../../support/helpers/generateUser";
 import { Methods } from "../../support/helpers/methods";
 const statusCode = require("../../support/fixtures/statusCode.json");
 
-test.describe("Login tests", () => {
+test.describe("Login and logOut tests", () => {
   let methods;
   const userData = generateUser.generateRandomUser();
   const userName = userData.username;
@@ -24,7 +24,6 @@ test.describe("Login tests", () => {
   test("should login with valid login credentials", async () => {
     await methods.loginUser(userName, password, statusCode.ok);
   });
-
   test("should succesfully logOut", async () => {
     await methods.logoutUser(consts.logOutUserUrl, statusCode.ok);
   });

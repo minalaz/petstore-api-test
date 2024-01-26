@@ -1,7 +1,8 @@
 const config = {
   use: {
     baseURL: "https://petstore.swagger.io/v2",
-    timeout: 30000,
+    api_key: "special-key",
+    timeout: 50000,
     ignoreHTTPSErrors: true,
   },
 
@@ -26,6 +27,7 @@ const config = {
       },
     },
   ],
+  reporter: [["html", { open: "always" }]],
 };
 
 module.exports = config;

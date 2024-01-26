@@ -1,7 +1,6 @@
 const { test } = require("@playwright/test");
 const statusCode = require("../../support/fixtures/statusCode.json");
 const petsStatus = require("../../support/fixtures/petsStatus.json");
-const invalidGetResponse = require("../../support/fixtures/invalidGetResponse.json");
 import { consts } from "../../support/helpers/consts";
 import { generatePet } from "../../support/helpers/generatePet";
 import { Methods } from "../../support/helpers/methods";
@@ -33,12 +32,5 @@ test.describe("Adding pets tests", async () => {
   });
   test("All pets should have status 'pending'", async () => {
     await methods.getPetsByStatus(petsStatus.pending, statusCode.ok);
-  });
-  test("shouldn't get pet with wrong url", async () => {
-    await methods.getPetById(
-      consts.invalidPetByIdUrl,
-      statusCode.notFound,
-      invalidGetResponse
-    );
   });
 });

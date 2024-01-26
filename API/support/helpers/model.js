@@ -7,6 +7,16 @@ export class Order {
     this.status = status;
     this.complete = complete;
   }
+  toJson() {
+    return {
+      id: this.id,
+      petId: this.petId,
+      quantity: this.quantity,
+      shipDate: this.shipDate,
+      status: this.status,
+      complete: this.complete,
+    };
+  }
 }
 export class User {
   constructor(
@@ -27,6 +37,18 @@ export class User {
     this.password = password;
     this.phone = phone;
     this.userStatus = userStatus;
+  }
+  toJson() {
+    return {
+      id: this.id,
+      username: this.username,
+      firstName: this.firstName,
+      lastName: this.lastName,
+      email: this.email,
+      password: this.password,
+      phone: this.phone,
+      userStatus: this.userStatus,
+    };
   }
 }
 export class Category {

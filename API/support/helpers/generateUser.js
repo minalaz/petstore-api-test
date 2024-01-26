@@ -13,4 +13,11 @@ export const generateUser = {
     user.userStatus = faker.random.number();
     return user;
   },
+  generateListOfUsers(number) {
+    const listOfUsers = [];
+    for (let i = 0; i < number; i++) {
+      listOfUsers.push(this.generateRandomUser());
+    }
+    return listOfUsers;
+  },
 };

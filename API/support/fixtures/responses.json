@@ -1,0 +1,13 @@
+{
+  "codeNotFound": 1,
+  "typeUnknown": "unknown",
+  "typeError": "error",
+  "messageOk": "ok",
+  "messageSuccesLoginMessage": "logged in user session:",
+  "messageSomethingBad": "something bad happened",
+  "messageUserNotFound": "User not found",
+  "messagePetNotFound": "Pet not found",
+  "messageInvalidGetResponse": "java.lang.NumberFormatException: For input string: \"doggie\"",
+  "messageBadInput": "bad input",
+  "messageNoData": "No data"
+}
